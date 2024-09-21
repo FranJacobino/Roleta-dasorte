@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roleta da Sorte Bee Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #E6E6FA; /* Tom lilás suave */
+            color: #4B0082; /* Roxo escuro */
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #6A5ACD; /* Tom lilás mais forte */
+        }
+        .opcao {
+            margin: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #D8BFD8; /* Tom lilás claro */
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+        }
+        button {
+            background-color: #9370DB; /* Lilás */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #8A2BE2; /* Tom lilás mais escuro */
+        }
+    </style>
+</head>
+<body>
+    <h1>Roleta da Sorte Bee Store</h1>
+    <p>Você só pode participar uma vez por e-mail!</p>
+
+    <div class="opcao" id="resultado"></div>
+    
+    <button onclick="gerarResultado()">Girar a Roleta!</button>
+
+    <script>
+        function gerarResultado() {
+            const opcoes = [
+                { texto: "Não foi dessa vez! Não deu!", codigo: "" },
+                { texto: "30% de desconto!", codigo: "#30Bee" },
+                { texto: "10% de desconto!", codigo: "#10Bee" },
+                { texto: "10% de desconto!", codigo: "#10Bee" },
+                { texto: "15% de desconto!", codigo: "#15Bee" },
+                { texto: "15% de desconto!", codigo: "#15Bee" }
+            ];
+
+            // Seleciona uma opção aleatória
+            const indice = Math.floor(Math.random() * opcoes.length);
+            const resultado = opcoes[indice];
+
+            // Exibe o resultado
+            document.getElementById("resultado").innerHTML = `
+                <h2>${resultado.texto}</h2>
+                ${resultado.codigo ? `<p>Código: ${resultado.codigo}</p>` : ''}
+            `;
+        }
+    </script>
+</body>
+</html>
